@@ -1,24 +1,26 @@
 import React from 'react';
 
-function GuessInput(){
+function GuessInput({handleSubmitGuess}){
     const LENGTH = 5;
     const [guess, setGuess] = React.useState('');
-    
 
     function handleSubmit(event){
         event.preventDefault();
-        console.log('attemping to submit: '+guess);
+        // console.log('attemping to submit: '+guess);
         
         if(guess.length!=LENGTH){
             window.alert("Enter 5 letters exact.");
             return;    
         }
         
-        console.log({guess});
-        console.log('success!');
-        setGuess('');
+        // console.log({guess});
+        // console.log('success!');
+        
+        //bring it to Game
+        handleSubmitGuess(guess);
+        
+        setGuess('');    
     }
-  
     
 
     return(
